@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= question.title %>
+    </title>
+</head>
+
+<body>
+    <h1>
+        <%= question.title %>
+    </h1>
+    <p>
+        <%= question.description %>
+    </p>
+    <small>Asked by <%= question.user.username %> on <%= question.date.toDateString() %></small>
+    <h2>Answers</h2>
+    <ul>
+        <% answers.forEach(answer=> { %>
+            <li>
+                <p>
+                    <%= answer.content %>
+                </p>
+                <small>Answered by <%= answer.user.username %> on <%= answer.date.toDateString() %></small>
+            </li>
+            <% }) %>
+    </ul>
+    <% if (user) { %>
+        <form action="/answers/<%= question._id %>" method="post">
+            <textarea name="content" required></textarea>
+            <button type="submit">Submit Answer</button>
+        </form>
+        <% } %>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stack Overflow Clone</title>
+</head>
+
+<body>
+    <h1>Questions</h1>
+    <% if (user) { %>
+        <a href="/auth/logout">Logout</a>
+        <a href="/profile">Profile</a>
+        <a href="/add-question">Add Question</a>
+        <% } else { %>
+            <a href="/auth/register">Register</a>
+            <a href="/auth/login">Login</a>
+            <% } %>
+                <ul>
+                    <% questions.forEach(question=> { %>
+                        <li>
+                            <a href="/questions/<%= question._id %>">
+                                <%= question.title %>
+                            </a>
+                            <p>
+                                <%= question.description %>
+                            </p>
+                            <small>Asked by <%= question.user.username %> on <%= question.date.toDateString() %></small>
+                        </li>
+                        <% }) %>
+                </ul>
+</body>
+
+</html>
