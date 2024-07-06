@@ -7,11 +7,18 @@
 
 <body>
     <h1>Login</h1>
-    <form action="/auth/login" method="post">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
+    <% if (error){ %>
+        <% if (error==='invalid_usrcredentials' ) { %>
+            <p style="color: red;">Login failed. Username doesn't exist.</p>
+            <% } else if (error==='invalid_pwdcredentials' ) { %>
+                <p style="color: red;">Login failed. Password is incorrect for this username.</p>
+                <% } %>
+                    <% } %>
+                        <form action="/auth/login" method="post">
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="password" name="password" placeholder="Password" required>
+                            <button type="submit">Login</button>
+                        </form>
 </body>
 
 </html>

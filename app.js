@@ -14,7 +14,7 @@ const auth = require("./middleware/auth");
 
 // Connect to MongoDB
 mongoose
-  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(mongoURI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(`MongoDB connection error: ${err}`));
 

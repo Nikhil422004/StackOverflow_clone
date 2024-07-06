@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
   try {
     let user = await User.findOne({ email });
     if (user) {
-      return res.status(400).json({ msg: "User already exists" });
+      return res.status(400).json({ error: "User already exists" });
     }
     user = new User({ username, email, password });
     await user.save();
@@ -29,18 +29,22 @@ router.post("/register", async (req, res) => {
 });
 
 // Login
-router.get("/login", (req, res) => res.render("login"));
+router.get("/login", (req, res) => res.render("login", { error: null }));
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     let user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ msg: "Invalid credentials" });
+      return res
+        .status(400)
+        .render("login", { error: "invalid_usrcredentials" });
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ msg: "Invalid credentials" });
+      return res
+        .status(400)
+        .render("login", { error: "invalid_pwdcredentials" });
     }
     const payload = { user: { id: user.id } };
     jwt.sign(payload, jwtSecret, { expiresIn: 3600 }, (err, token) => {

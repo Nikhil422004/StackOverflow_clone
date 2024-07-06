@@ -7,6 +7,7 @@
 
 <body>
     <h1>Your Profile</h1>
+
     <h2>Your Questions</h2>
     <ul>
         <% questions.forEach(question=> { %>
@@ -18,9 +19,14 @@
                     <%= question.description %>
                 </p>
                 <small>Asked on <%= question.date.toDateString() %></small>
+                <!-- Delete Question Button -->
+                <form action="/questions/<%= question._id %>/delete" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
             </li>
             <% }) %>
     </ul>
+
     <h2>Your Answers</h2>
     <ul>
         <% answers.forEach(answer=> { %>
@@ -32,6 +38,10 @@
                             href="/questions/<%= answer.question._id %>">
                             <%= answer.question.title %>
                         </a></small>
+                <!-- Delete Answer Button -->
+                <form action="/answers/<%= answer._id %>/delete" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
             </li>
             <% }) %>
     </ul>
