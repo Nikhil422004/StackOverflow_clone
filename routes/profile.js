@@ -15,7 +15,7 @@ router.get("/", auth, async (req, res) => {
       .populate("question");
     res.render("profile", { questions, answers });
   } catch (err) {
-    console.error(err.message);
+    console.error(`Server error in profile.js: ${err.message}`);
     res.status(500).send("Server error in profile.js");
   }
 });
@@ -24,15 +24,28 @@ router.get("/", auth, async (req, res) => {
 router.post("/questions/:id/delete", auth, async (req, res) => {
   try {
     const question = await Question.findById(req.params.id);
+    if (!question) {
+      console.error(`Question not found with ID: ${req.params.id}`);
+      return res.status(404).send("Question not found");
+    }
     if (question.user.toString() === req.user.id) {
-      await question.remove();
+      await Answer.deleteMany({ question: req.params.id }); // Delete related answers
+      await Question.deleteOne({ _id: req.params.id });
+      console.log(
+        `Question with ID ${req.params.id} and its related answers deleted`
+      );
       res.redirect("/profile");
     } else {
+      console.error(
+        `User ${req.user.id} unauthorized to delete question ${req.params.id}`
+      );
       res.status(403).send("Forbidden");
     }
   } catch (err) {
-    console.error(`Error deleting question: ${err.message}`);
-    res.status(500).send("Server error");
+    console.error(
+      `Error deleting question with ID ${req.params.id}: ${err.message}`
+    );
+    res.status(500).send("Server error in delete question");
   }
 });
 
@@ -40,14 +53,24 @@ router.post("/questions/:id/delete", auth, async (req, res) => {
 router.post("/answers/:id/delete", auth, async (req, res) => {
   try {
     const answer = await Answer.findById(req.params.id);
+    if (!answer) {
+      console.error(`Answer not found with ID: ${req.params.id}`);
+      return res.status(404).send("Answer not found");
+    }
     if (answer.user.toString() === req.user.id) {
-      await answer.remove();
+      await Answer.deleteOne({ _id: req.params.id });
+      console.log(`Answer with ID ${req.params.id} deleted`);
       res.redirect("/profile");
     } else {
+      console.error(
+        `User ${req.user.id} unauthorized to delete answer ${req.params.id}`
+      );
       res.status(403).send("Forbidden");
     }
   } catch (err) {
-    console.error(`Error deleting answer: ${err.message}`);
+    console.error(
+      `Error deleting answer with ID ${req.params.id}: ${err.message}`
+    );
     res.status(500).send("Server error");
   }
 });

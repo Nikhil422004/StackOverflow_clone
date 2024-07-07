@@ -19,8 +19,7 @@
                     <%= question.description %>
                 </p>
                 <small>Asked on <%= question.date.toDateString() %></small>
-                <!-- Delete Question Button -->
-                <form action="/questions/<%= question._id %>/delete" method="post" style="display:inline;">
+                <form action="/profile/questions/<%= question._id %>/delete" method="post" style="display:inline;">
                     <button type="submit">Delete</button>
                 </form>
             </li>
@@ -34,14 +33,18 @@
                 <p>
                     <%= answer.content %>
                 </p>
-                <small>Answered on <%= answer.date.toDateString() %> for <a
-                            href="/questions/<%= answer.question._id %>">
-                            <%= answer.question.title %>
-                        </a></small>
-                <!-- Delete Answer Button -->
-                <form action="/answers/<%= answer._id %>/delete" method="post" style="display:inline;">
-                    <button type="submit">Delete</button>
-                </form>
+                <% if (answer.question) { %>
+                    <small>Answered on <%= answer.date.toDateString() %> for <a
+                                href="/questions/<%= answer.question._id %>">
+                                <%= answer.question.title %>
+                            </a></small>
+                    <% } else { %>
+                        <small>Answered on <%= answer.date.toDateString() %> (Question not available)</small>
+                        <% } %>
+                            <form action="/profile/answers/<%= answer._id %>/delete" method="post"
+                                style="display:inline;">
+                                <button type="submit">Delete</button>
+                            </form>
             </li>
             <% }) %>
     </ul>
