@@ -1,17 +1,19 @@
+<link rel="stylesheet" href="/styles/navbar.css">
 <div class="navbar">
     <div class="left">
+        <a href="/"><img src="images/logo-stackoverflow.png" style="width: 150px;"></a>
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/questions">Questions</a>
     </div>
     <div class="right">
         <% if (user) { %>
-            <a href="/add-question">Add Question</a>
-            <a href="/profile">Profile</a>
-            <a href="/auth/logout">Logout</a>
+            <a href="/add-question" class="secondary">Add_Question</a>
+            <a href="/profile" class="secondary">Profile</a>
+            <a href="/auth/logout" class="primary">Logout</a>
             <% } else { %>
-                <a href="/auth/login">Log in</a>
-                <a href="/auth/register">Sign up</a>
+                <a href="/auth/login" class="secondary">Login</a>
+                <a href="/auth/register" class="primary">SignUp</a>
                 <% } %>
     </div>
 </div>
