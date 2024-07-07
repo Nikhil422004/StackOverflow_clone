@@ -1,0 +1,17 @@
+<div class="navbar">
+    <div class="left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/questions">Questions</a>
+    </div>
+    <div class="right">
+        <% if (user) { %>
+            <a href="/add-question">Add Question</a>
+            <a href="/profile">Profile</a>
+            <a href="/auth/logout">Logout</a>
+            <% } else { %>
+                <a href="/auth/login">Log in</a>
+                <a href="/auth/register">Sign up</a>
+                <% } %>
+    </div>
+</div>

@@ -14,7 +14,7 @@ router.post("/", auth, async (req, res) => {
       user: req.user.id,
     });
     const question = await newQuestion.save();
-    res.redirect("/");
+    res.redirect("/questions");
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");

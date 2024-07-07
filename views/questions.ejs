@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stack Overflow Clone</title>
+</head>
+
+<body>
+    <h1>Questions</h1>
+    <% if (questions.length> 0) { %>
+        <ul>
+
+            <% questions.forEach(question=> { %>
+                <li>
+                    <a href="/questions/<%= question._id %>">
+                        <%= question.title %>
+                    </a>
+                    <p>
+                        <%= question.description %>
+                    </p>
+                    <small>Asked by <%= question.user.username %> on <%= question.date.toDateString() %></small>
+                </li>
+                <% }) %>
+        </ul>
+        <% } else { %>
+            <p>No questions yet.</p>
+            <% } %>
+</body>
+
+</html>
