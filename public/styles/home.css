@@ -1,0 +1,27 @@
+.homeContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F9FAFA;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text h1 {
+    font-size: 250%;
+    font-weight: 700;
+    text-align: center;
+}
+
+.text p {
+    text-align: center;
+}
+
+img {
+    width: 50%;
+}

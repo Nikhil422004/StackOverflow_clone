@@ -1,0 +1,50 @@
+.aboutHero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutHero h1 {
+    text-align: center;
+    font-size: 300%;
+    font-weight: 400;
+}
+
+.aboutHero .sub {
+    color: rgb(134, 134, 134);
+    text-align: center;
+    font-size: 150%;
+    margin-bottom: 20%;
+}
+
+.bold {
+    font-weight: 800;
+    margin: 0;
+
+}
+
+.aboutHero img {
+    width: 10%;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    background-color: #F9FAFA;
+}
+
+.box p {
+    text-align: center;
+    border: 2px solid rgb(64, 64, 64);
+    border-radius: 5px;
+    padding: 5%;
+    margin: 0.1%;
+}
+
+.box p strong {
+    font-weight: 700;
+    font-size: 200%;
+}
