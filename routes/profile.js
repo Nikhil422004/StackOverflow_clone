@@ -13,7 +13,7 @@ router.get("/", auth, async (req, res) => {
     const answers = await Answer.find({ user: req.user.id })
       .sort({ date: -1 })
       .populate("question");
-    res.render("profile", { questions, answers });
+    res.render("profile", { questions, answers, user: req.user });
   } catch (err) {
     console.error(`Server error in profile.js: ${err.message}`);
     res.status(500).send("Server error in profile.js");

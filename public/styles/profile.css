@@ -1,0 +1,38 @@
+.qLink {
+    color: #e57011;
+}
+
+.user-info p {
+    font-size: 130%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+}
+
+small {
+    display: block;
+    margin-bottom: 1%;
+}
+
+li {
+    margin-bottom: 5%;
+}
+
+.delBtn {
+    background: white;
+    border: 2px solid red;
+    color: red;
+    border-radius: 3px;
+    padding: 0.5% 1%;
+}
+
+.delBtn:hover {
+    background: red;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}

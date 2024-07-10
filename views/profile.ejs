@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/profile.css">
     <title>Profile</title>
     <script>
         function confirmDeletion(event) {
@@ -17,50 +19,70 @@
     <%- include('./partials/navbar') %>
 
         <h1>Your Profile</h1>
+        <div class="container">
+            <div class="user-info">
+                <p><strong>Name:</strong>
+                    <%= user.username %>
+                </p>
+                <p><strong>Email:</strong>
+                    <%= user.email %>
+                </p>
+            </div>
 
-        <h2>Your Questions</h2>
-        <ul>
-            <% questions.forEach(question=> { %>
-                <li>
-                    <a href="/questions/<%= question._id %>">
-                        <%= question.title %>
-                    </a>
-                    <p>
-                        <%= question.description %>
-                    </p>
-                    <small>Asked on <%= question.date.toDateString() %></small>
-                    <form action="/profile/questions/<%= question._id %>/delete" method="post" style="display:inline;"
-                        onsubmit="confirmDeletion(event)">
-                        <button type="submit">Delete</button>
-                    </form>
-                </li>
-                <% }) %>
-        </ul>
+            <h2>Your Questions</h2>
+            <% if (questions.length> 0) { %>
+                <ul>
+                    <% questions.forEach(question=> { %>
+                        <li>
+                            <a href="/questions/<%= question._id %>" class="qLink">
+                                <%= question.title %>
+                            </a>
+                            <p>
+                                <%= question.description %>
+                            </p>
+                            <small>Asked on <%= question.date.toDateString() %></small>
+                            <form action="/profile/questions/<%= question._id %>/delete" method="post"
+                                style="display:inline;" onsubmit="confirmDeletion(event)">
+                                <button type="submit" class="delBtn">Delete</button>
+                            </form>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } else { %>
+                    <p>You have not asked any questions yet.</p>
+                    <% } %>
 
-        <h2>Your Answers</h2>
-        <ul>
-            <% answers.forEach(answer=> { %>
-                <li>
-                    <p>
-                        <%= answer.content %>
-                    </p>
-                    <% if (answer.question) { %>
-                        <small>Answered on <%= answer.date.toDateString() %> for <a
-                                    href="/questions/<%= answer.question._id %>">
-                                    <%= answer.question.title %>
-                                </a></small>
-                        <% } else { %>
-                            <small>Answered on <%= answer.date.toDateString() %> (Question not available)</small>
-                            <% } %>
-                                <form action="/profile/answers/<%= answer._id %>/delete" method="post"
-                                    style="display:inline;" onsubmit="confirmDeletion(event)">
-                                    <button type="submit">Delete</button>
-                                </form>
-                </li>
-                <% }) %>
-        </ul>
+                        <h2>Your Answers</h2>
+                        <% if (answers.length> 0) { %>
+                            <ul>
+                                <% answers.forEach(answer=> { %>
+                                    <li>
+                                        <p>
+                                            <%= answer.content %>
+                                        </p>
+                                        <% if (answer.question) { %>
+                                            <small>Answered on <%= answer.date.toDateString() %> for <a
+                                                        href="/questions/<%= answer.question._id %>" class="qLink">
+                                                        <%= answer.question.title %>
+                                                    </a></small>
+                                            <% } else { %>
+                                                <small>Answered on <%= answer.date.toDateString() %> (Question not
+                                                        available)</small>
+                                                <% } %>
+                                                    <form action="/profile/answers/<%= answer._id %>/delete"
+                                                        method="post" style="display:inline;"
+                                                        onsubmit="confirmDeletion(event)">
+                                                        <button type="submit" class="delBtn">Delete</button>
+                                                    </form>
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                            <% } else { %>
+                                <p>You have not answered any questions yet.</p>
+                                <% } %>
+        </div>
+
+        <%- include('./partials/footer') %>
 </body>
-
-<%- include('./partials/footer') %>
 
 </html>
