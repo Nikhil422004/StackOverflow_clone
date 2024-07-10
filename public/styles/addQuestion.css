@@ -1,0 +1,36 @@
+body {
+    margin-top: 5% !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 50vw;
+    margin: auto;
+}
+
+.title {
+    padding: 2%;
+    margin: 2%;
+    border-radius: 10px;
+    background: #f9fafa;
+}
+
+.btn {
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    width: 10vw;
+    height: 5vh;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 5%;
+}
+
+
+.btn:hover {
+    background-color: rgb(0, 0, 174);
+}
