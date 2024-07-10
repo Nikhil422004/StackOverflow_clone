@@ -25,3 +25,42 @@
 img {
     width: 50%;
 }
+
+.homeSub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20% auto;
+
+}
+
+.subText {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 5px solid #cccccc;
+    border-radius: 8px;
+    border-right: none;
+    padding: 3%;
+    font-size: 120%;
+    text-align: center;
+
+}
+
+.subText img {
+    width: 20vw;
+}
+
+.subImage {
+    width: 40vw;
+}
+
+.bottomTiles {
+    background: #F9FAFA;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    padding: 3%;
+    border-radius: 15px;
+}

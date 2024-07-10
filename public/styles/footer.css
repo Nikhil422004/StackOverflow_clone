@@ -1,0 +1,22 @@
+.footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    width: 93.98vw;
+    padding: 3%;
+    margin: 0;
+    padding-bottom: 0;
+    margin-top: 10%;
+    margin-left: -6%;
+}
+
+.footer h3 {
+    color: white;
+}
+
+.copy {
+    color: rgb(180, 178, 178);
+    font-size: small;
+    text-align: center;
+    margin-top: 5%;
+    padding-bottom: 2%;
+}

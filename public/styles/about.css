@@ -33,15 +33,16 @@
 .box {
     display: flex;
     flex-direction: row;
-    background-color: #F9FAFA;
 }
 
 .box p {
+    background-color: #F9FAFA;
     text-align: center;
-    border: 2px solid rgb(64, 64, 64);
-    border-radius: 5px;
-    padding: 5%;
+    border: 2px solid rgb(150, 150, 150);
+    border-radius: 10px;
+    padding: 2% 5%;
     margin: 0.1%;
+    margin-bottom: 10%;
 }
 
 .box p strong {
