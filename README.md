@@ -1,6 +1,8 @@
 # StackOverflow Clone
 
 A simplified Stack Overflow-like web application built with Node.js, Express, MongoDB, and EJS.
+Kindly find the video demo in the following link : [Watch the video](https://drive.google.com/file/d/1gYmtgtEFlirxJKE6_vGLb1QPvaPExEdi/view?usp=sharing)
+
 
 ## Features
 
@@ -41,3 +43,8 @@ A simplified Stack Overflow-like web application built with Node.js, Express, Mo
    ```sh
    git clone https://github.com/your-username/stackoverflow-simplified.git
    cd stackoverflow-simplified
+```
+2. Install necessary packages:
+```npm install```
+3. Run the app:
+```nodemon app.js```
