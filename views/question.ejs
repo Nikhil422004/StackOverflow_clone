@@ -23,14 +23,18 @@
 
             <h2>Answers</h2>
             <ul>
-                <% answers.forEach(answer=> { %>
-                    <li>
-                        <p>
-                            <%= answer.content %>
-                        </p>
-                        <small>Answered by <%= answer.user.username %> on <%= answer.date.toDateString() %></small>
-                    </li>
-                    <% }) %>
+                <% if (answers.length> 0) { %>
+                    <% answers.forEach(answer=> { %>
+                        <li>
+                            <p>
+                                <%= answer.content %>
+                            </p>
+                            <small>Answered by <%= answer.user.username %> on <%= answer.date.toDateString() %></small>
+                        </li>
+                        <% }) %>
+                            <% } else { %>
+                                <p>No answers yet. Be the first to answer!</p>
+                                <% } %>
             </ul>
         </div>
         <% if (user) { %>
