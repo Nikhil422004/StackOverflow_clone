@@ -1,4 +1,4 @@
-# StackOverflow Simplified
+# StackOverflow Clone
 
 A simplified Stack Overflow-like web application built with Node.js, Express, MongoDB, and EJS.
 
