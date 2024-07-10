@@ -2,6 +2,11 @@ body {
     margin-top: 5% !important;
 }
 
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -9,11 +14,21 @@ form {
     margin: auto;
 }
 
-.title {
+.login {
+    max-width: 30vw;
+    border: 2px solid rgb(171, 171, 171);
+    background-color: #f9fafa;
+    border-radius: 10px;
+    padding: 5% 3%;
+
+}
+
+.input {
     padding: 2%;
     margin: 2%;
     border-radius: 10px;
     background: #f9fafa;
+    border: 2px solid rgb(171, 171, 171);
 }
 
 .btn {
@@ -28,6 +43,7 @@ form {
     align-items: center;
     margin: auto;
     margin-top: 5%;
+    cursor: pointer;
 }
 
 

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="/styles/addQuestion.css">
     <title>Login</title>
 </head>
 
@@ -15,10 +16,10 @@
                     <p style="color: red;">Login failed. Password is incorrect for this username.</p>
                     <% } %>
                         <% } %>
-                            <form action="/auth/login" method="post">
-                                <input type="email" name="email" placeholder="Email" required>
-                                <input type="password" name="password" placeholder="Password" required>
-                                <button type="submit">Login</button>
+                            <form action="/auth/login" method="post" class="login">
+                                <input type="email" name="email" placeholder="Email" class="input" required>
+                                <input type="password" name="password" placeholder="Password" class="input" required>
+                                <button type="submit" class="btn">Login</button>
                             </form>
 </body>
 
