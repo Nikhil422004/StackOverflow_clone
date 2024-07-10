@@ -44,10 +44,10 @@ Kindly find the video demo in the following link : [Watch the video](https://dri
    ```sh
    git clone https://github.com/your-username/stackoverflow-simplified.git
    cd stackoverflow-simplified
-```
+
 2. Install necessary packages:
 ```sh
-npm install```
+npm install
 3. Run the app:
 ```sh
-nodemon app.js```
+nodemon app.js
