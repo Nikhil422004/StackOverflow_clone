@@ -46,10 +46,9 @@ Kindly find the video demo in the following link : [Watch the video](https://dri
    cd stackoverflow-simplified
 
 2. Install necessary packages:
-  ```sh
-npm install
+   ```sh
+   npm install
 
-
-3. Run the app:
-  ```sh
-nodemon app.js
+3. Run the app using nodemon:
+   ```sh
+   nodemon app.js   
