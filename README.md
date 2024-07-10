@@ -48,6 +48,7 @@ Kindly find the video demo in the following link : [Watch the video](https://dri
 2. Install necessary packages:
 ```sh
 npm install
+
 3. Run the app:
 ```sh
 nodemon app.js
