@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/question.css">
     <title>
         <%= question.title %>
     </title>
@@ -13,25 +15,29 @@
         <h1>
             <%= question.title %>
         </h1>
-        <p>
-            <%= question.description %>
-        </p>
-        <small>Asked by <%= question.user.username %> on <%= question.date.toDateString() %></small>
-        <h2>Answers</h2>
-        <ul>
-            <% answers.forEach(answer=> { %>
-                <li>
-                    <p>
-                        <%= answer.content %>
-                    </p>
-                    <small>Answered by <%= answer.user.username %> on <%= answer.date.toDateString() %></small>
-                </li>
-                <% }) %>
-        </ul>
+        <div class="answers">
+            <p>
+                <%= question.description %>
+            </p>
+            <small>Asked by <%= question.user.username %> on <%= question.date.toDateString() %></small>
+
+            <h2>Answers</h2>
+            <ul>
+                <% answers.forEach(answer=> { %>
+                    <li>
+                        <p>
+                            <%= answer.content %>
+                        </p>
+                        <small>Answered by <%= answer.user.username %> on <%= answer.date.toDateString() %></small>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
         <% if (user) { %>
-            <form action="/answers/<%= question._id %>" method="post">
-                <textarea name="content" required></textarea>
-                <button type="submit">Submit Answer</button>
+            <h3 style="text-align: center;">Contribute Your Answer</h3>
+            <form action="/answers/<%= question._id %>" method="post" class="">
+                <textarea name="content" class="input anstextarea" placeholder="Submit an Answer"></textarea>
+                <button type="submit" class="btn">Submit Answer</button>
             </form>
             <% } %>
 </body>

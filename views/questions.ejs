@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/questions.css">
     <title>Stack Overflow Clone</title>
 </head>
 
@@ -13,12 +15,13 @@
             <ul>
 
                 <% questions.forEach(question=> { %>
-                    <li>
-                        <a href="/questions/<%= question._id %>">
-                            <%= question.title %>
-                        </a>
+                    <li class="questionCard" onclick="window.location.href='/questions/<%= question._id %>'"
+                        style="cursor: pointer;">
+                        <h3 href="/questions/<%= question._id %>">
+                            <%= question.title %> :
+                        </h3>
                         <p>
-                            <%= question.description %>
+                            &nbsp;&nbsp;&nbsp;<%= question.description %>
                         </p>
                         <small>Asked by <%= question.user.username %> on <%= question.date.toDateString() %></small>
                     </li>

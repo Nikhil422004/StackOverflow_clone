@@ -1,0 +1,16 @@
+small {
+    color: #969696;
+}
+
+.answers {
+    max-width: 70vw;
+    margin: auto;
+}
+
+p {
+    margin-bottom: 1%;
+}
+
+li {
+    margin-bottom: 5%;
+}

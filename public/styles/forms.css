@@ -35,6 +35,10 @@ form {
     min-height: 45vh;
 }
 
+.anstextarea {
+    min-height: 20vh;
+}
+
 .btn {
     border-radius: 5px;
     background-color: blue;
@@ -48,6 +52,7 @@ form {
     margin: auto;
     margin-top: 3%;
     cursor: pointer;
+    border: 2px solid rgb(49, 49, 232);
 }
 
 
