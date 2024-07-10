@@ -2,25 +2,25 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="/styles/addQuestion.css">
+    <link rel="stylesheet" href="/styles/forms.css">
     <title>Login</title>
 </head>
 
 <body>
     <%- include('./partials/navbar') %>
         <h1>Login</h1>
-        <% if (error){ %>
-            <% if (error==='invalid_usrcredentials' ) { %>
-                <p style="color: red;">Login failed. Username doesn't exist.</p>
-                <% } else if (error==='invalid_pwdcredentials' ) { %>
-                    <p style="color: red;">Login failed. Password is incorrect for this username.</p>
-                    <% } %>
+        <form action="/auth/login" method="post" class="login">
+            <% if (error){ %>
+                <% if (error==='invalid_usrcredentials' ) { %>
+                    <p style="color: red;">Login failed. Username doesn't exist.</p>
+                    <% } else if (error==='invalid_pwdcredentials' ) { %>
+                        <p style="color: red;">Login failed. Password is incorrect for this username.</p>
                         <% } %>
-                            <form action="/auth/login" method="post" class="login">
+                            <% } %>
                                 <input type="email" name="email" placeholder="Email" class="input" required>
                                 <input type="password" name="password" placeholder="Password" class="input" required>
                                 <button type="submit" class="btn">Login</button>
-                            </form>
+        </form>
 </body>
 
 <%- include('./partials/footer') %>

@@ -6,14 +6,16 @@ const { jwtSecret } = require("../config");
 const router = express.Router();
 
 // Register
-router.get("/register", (req, res) => res.render("register"));
+router.get("/register", (req, res) => res.render("register", { error: null }));
 
 router.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   try {
     let user = await User.findOne({ email });
     if (user) {
-      return res.status(400).json({ error: "User already exists" });
+      return res
+        .status(400)
+        .render("register", { error: "User already exists" });
     }
     user = new User({ username, email, password });
     await user.save();

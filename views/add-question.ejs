@@ -2,29 +2,19 @@
 <html>
 
 <head>
-    <title>Stack Overflow Clone | Add Question</title>
-    <link rel="stylesheet" href="/styles/addQuestion.css">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/forms.css">
+    <title>Add Question</title>
 </head>
 
 <body>
     <%- include('./partials/navbar') %>
-
         <h1>Add Question</h1>
         <form action="/questions" method="post">
             <input type="text" name="title" placeholder="Title" class="input" required>
-            <div id="editor"></div>
-            <button type="submit" class="btn primary">Add Question</button>
+            <textarea name="description" placeholder="Description" class="input textarea"></textarea>
+            <button type="submit" class="btn">Add Question</button>
         </form>
 </body>
-
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script>
-    var quill = new Quill('#editor', {
-        theme: 'snow'
-    });
-</script>
-
 <%- include('./partials/footer') %>
 
 </html>

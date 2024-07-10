@@ -31,6 +31,10 @@ form {
     border: 2px solid rgb(171, 171, 171);
 }
 
+.textarea {
+    min-height: 45vh;
+}
+
 .btn {
     border-radius: 5px;
     background-color: blue;
@@ -42,7 +46,7 @@ form {
     justify-content: center;
     align-items: center;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 3%;
     cursor: pointer;
 }
 
