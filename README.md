@@ -46,6 +46,8 @@ Kindly find the video demo in the following link : [Watch the video](https://dri
    cd stackoverflow-simplified
 ```
 2. Install necessary packages:
-```npm install```
+```sh
+npm install```
 3. Run the app:
-```nodemon app.js```
+```sh
+nodemon app.js```
